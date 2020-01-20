@@ -1587,15 +1587,18 @@ static void predefined_macros(void)
 		predefine("__s390__", 1, "1");
 		break;
 	case MACH_SPARC64:
-		predefine("__sparc_v9__", 1, "1");
-		predefine("__sparcv9__", 1, "1");
-		predefine("__sparcv9", 1, "1");
-		predefine("__sparc64__", 1, "1");
-		predefine("__arch64__", 1, "1");
+		if (arch_m64 != ARCH_LP32) {
+			predefine("__sparc_v9__", 1, "1");
+			predefine("__sparcv9__", 1, "1");
+			predefine("__sparcv9", 1, "1");
+			predefine("__sparc64__", 1, "1");
+			predefine("__arch64__", 1, "1");
+		}
 		/* fall-through */
 	case MACH_SPARC32:
 		predefine("__sparc__", 1, "1");
 		predefine("__sparc", 1, "1");
+		predefine("sparc", 1, "1");
 		break;
 	case MACH_X86_64:
 		if (arch_m64 != ARCH_LP32) {
