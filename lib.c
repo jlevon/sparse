@@ -1507,6 +1507,10 @@ static void predefined_macros(void)
 	if (optimize_size)
 		predefine("__OPTIMIZE_SIZE__", 0, "1");
 
+	predefine("__unix__", 1, "1");
+	predefine("__unix", 1, "1");
+	predefine("unix", 1, "1");
+
 	predefine("__PRAGMA_REDEFINE_EXTNAME", 1, "1");
 
 	// Temporary hacks
