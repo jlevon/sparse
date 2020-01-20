@@ -1630,6 +1630,13 @@ static void predefined_macros(void)
 		predefine("__PIE__", 0, "%d", fpie);
 	}
 
+	if (arch_os == OS_SUNOS) {
+		predefine("__sun__", 1, "1");
+		predefine("__sun", 1, "1");
+		predefine("sun", 1, "1");
+		predefine("__svr4__", 1, "1");
+	}
+
 	predefined_cmodel();
 }
 
